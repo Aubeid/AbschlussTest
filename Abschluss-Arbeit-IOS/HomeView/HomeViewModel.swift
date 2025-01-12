@@ -11,30 +11,29 @@ class HomeViewModel: ObservableObject {
     //private let locationManager = LocationManager()
     private let firestore = Firestore.firestore()
     
-//    
-//    func openMapsWithUserLocation() -> MapViewWrapper {
-//        if let userLocation = userLocation {
-//            return MapViewWrapper(coordinate: userLocation.coordinate)
-//        } else {
-//            return MapViewWrapper(coordinate: nil)
-//        }
-//    }
-//    
-//    var userLocation: CLLocation? {
-//           locationManager.location
-//       }
+    //    
+    //    func openMapsWithUserLocation() -> MapViewWrapper {
+    //        if let userLocation = userLocation {
+    //            return MapViewWrapper(coordinate: userLocation.coordinate)
+    //        } else {
+    //            return MapViewWrapper(coordinate: nil)
+    //        }
+    //    }
+    //    
+    //    var userLocation: CLLocation? {
+    //           locationManager.location
+    //       }
     
     init() {
-           mainItems = loadItems()
-       }
-  
-
+        mainItems = loadItems()
+    }
+    
     func addPhoto(_ photo: String) {
         DispatchQueue.main.async {
             self.photos.append(photo)
         }
     }
-
+    
     func removePhoto(at index: Int) {
         DispatchQueue.main.async {
             self.photos.remove(at: index)
@@ -50,29 +49,27 @@ class HomeViewModel: ObservableObject {
                        MainItemes(name: "Stundenplan", image: "graduationcap"),
                        MainItemes(name: "Wo bist du?", image: "graduationcap")]
         
-    return mainItems
-       
-       
+        return mainItems
+        
     }
     
     func fetchUsers() {
-            firestore.collection("users").addSnapshotListener { querySnapshot, error in
-                if let error = error {
-                    print("Error fetching users: \(error.localizedDescription)")
-                    return
-                }
-
-                self.users = querySnapshot?.documents.compactMap { document in
-                    try? document.data(as: User.self)
-                } ?? []
+        firestore.collection("users").addSnapshotListener { querySnapshot, error in
+            if let error = error {
+                print("Error fetching users: \(error.localizedDescription)")
+                return
             }
+            
+            self.users = querySnapshot?.documents.compactMap { document in
+                try? document.data(as: User.self)
+            } ?? []
         }
-    
+    }
     
     func logoutButtonTapped() {
         do {
             try AuthRepository.shared.logout()
-           
+            
         } catch {
             print("Error logging out: \(error.localizedDescription)")
         }

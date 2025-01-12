@@ -19,19 +19,19 @@ struct WelcomeView: View {
                 .aspectRatio(contentMode: .fit)
                 .edgesIgnoringSafeArea(.all)
                 .background(.clear)
-             
             
-                
             
-//            VStack {
-//                Text("Willkommen!")
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.white)
-//                
-//                Spacer()
-//            }
-//            .padding()
+            
+            
+            //            VStack {
+            //                Text("Willkommen!")
+            //                    .font(.largeTitle)
+            //                    .fontWeight(.bold)
+            //                    .foregroundColor(.white)
+            //                
+            //                Spacer()
+            //            }
+            //            .padding()
         }
         
         .onAppear {

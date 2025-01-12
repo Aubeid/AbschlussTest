@@ -18,7 +18,6 @@ class TimetableViewModel: ObservableObject {
     init() {
         fetchTimetables()
         fetchUsers()
-        
     }
     
     func fetchUsers() {
@@ -40,8 +39,6 @@ class TimetableViewModel: ObservableObject {
                 print(self.users)
             }
     }
-    
-
     
     func fetchTimetables() {
         firestore.collection("timetables")

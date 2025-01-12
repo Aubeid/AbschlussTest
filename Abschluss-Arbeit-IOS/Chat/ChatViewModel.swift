@@ -39,28 +39,27 @@ final class ChatViewModel: ObservableObject {
             }
     }
     
-    
-       func sendMessage(_ text: String) {
-           guard let currentUser = AuthRepository.shared.checkUser() else {
-               return
-           }
-           
-           let message = Message(text: text, senderId: currentUser.uid, timestamp: Timestamp(date: Date()))
-           let conversationId = createConversationId(currentUserId, recipientId)
-           
-           do {
-               let _ = try firestore.collection("conversations")
-                   .document(conversationId)
-                   .collection("messages")
-                   .addDocument(from: message)
-           } catch {
-               print("Error sending message: \(error.localizedDescription)")
-           }
-       }
+    func sendMessage(_ text: String) {
+        guard let currentUser = AuthRepository.shared.checkUser() else {
+            return
+        }
+        
+        let message = Message(text: text, senderId: currentUser.uid, timestamp: Timestamp(date: Date()))
+        let conversationId = createConversationId(currentUserId, recipientId)
+        
+        do {
+            let _ = try firestore.collection("conversations")
+                .document(conversationId)
+                .collection("messages")
+                .addDocument(from: message)
+        } catch {
+            print("Error sending message: \(error.localizedDescription)")
+        }
+    }
     
     private func createConversationId(_ userId1: String, _ userId2: String) -> String {
         let userIds = [userId1, userId2].sorted()
         return userIds.joined(separator: "_")
     }
 }
-    
+

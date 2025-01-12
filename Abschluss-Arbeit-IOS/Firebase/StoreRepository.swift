@@ -43,5 +43,4 @@ final class StoreRepository {
             try store.collection("users").document(id).setData(from: user)
         }
     }
-    
 }

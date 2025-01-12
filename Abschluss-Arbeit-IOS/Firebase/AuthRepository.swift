@@ -36,5 +36,4 @@ final class AuthRepository {
     func deleteUser() async throws {
         try await auth.currentUser?.delete()
     }
-    
 }

@@ -15,7 +15,7 @@ struct User: Identifiable, Codable, Hashable {
     var createdAt: String
     let photoURL: String?
     //let location: GeoPoint?
-   
+    
 }
 
 
@@ -29,11 +29,11 @@ struct User: Identifiable, Codable, Hashable {
 //    }
 //    
 //    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 

@@ -12,26 +12,24 @@ struct Meal: Identifiable, Codable {
     var name: String
     var imageURL: String
     var instructions: String
-//    var category: String
-//    var area: String
-//    var tags: [String]?
-//    var youtubeURL: String?
-//    var ingredients: [String]
-//    var measures: [String]
+    //    var category: String
+    //    var area: String
+    //    var tags: [String]?
+    //    var youtubeURL: String?
+    //    var ingredients: [String]
+    //    var measures: [String]
     
     enum CodingKeys: String, CodingKey {
         case id = "idMeal"
         case name = "strMeal"
         case imageURL = "strMealThumb"
         case instructions = "strInstructions"
-//        case category = "strCategory"
-//        case area = "strArea"
-//        case tags = "strTags"
-//        case youtubeURL = "strYoutube"
-//        case ingredients = "strIngredient"
-//        case measures = "strMeasure"
+        //        case category = "strCategory"
+        //        case area = "strArea"
+        //        case tags = "strTags"
+        //        case youtubeURL = "strYoutube"
+        //        case ingredients = "strIngredient"
+        //        case measures = "strMeasure"
     }
-    
-
-   }
+}
 

@@ -11,14 +11,14 @@ import FirebaseDatabase
 struct MealView: View {
     @StateObject private var viewModel = MealViewModel.sharedMealViewModel
     @StateObject private var favoritesViewModel = FavoritesViewModel.sharedFavoViewModel
-
+    
     var body: some View {
         VStack {
             if let meal = viewModel.meal {
                 VStack {
                     Text(meal.name)
                         .font(.title)
-
+                    
                     AsyncImage(url: URL(string: meal.imageURL)) { image in
                         image
                             .resizable()
@@ -29,7 +29,7 @@ struct MealView: View {
                         ProgressView()
                     }
                     .padding()
-
+                    
                     Button(action: {
                         viewModel.toggleFavorite(meal)
                     }) {
@@ -38,7 +38,7 @@ struct MealView: View {
                     }
                 }
                 .padding()
-
+                
                 Button(action: {
                     viewModel.fetchRandomMeal()
                 }) {
@@ -50,7 +50,7 @@ struct MealView: View {
                         .cornerRadius(10)
                 }
                 .padding()
-
+                
                 NavigationLink(destination: FavoritesView()) {
                     Text("Fav List")
                 }
@@ -66,7 +66,6 @@ struct MealView: View {
         }
     }
 }
-
 
 #Preview {
     MealView()

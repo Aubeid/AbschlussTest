@@ -1,7 +1,5 @@
 import SwiftUI
 
-
-
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var showingImagePicker = false
@@ -44,16 +42,16 @@ struct HomeView: View {
                     })
                 }
                 
-//                Button(action: {
-//                    NavigationView()
-//                }) {
-//                    Text("Öffne Apple Maps")
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .background(Color.blue)
-//                        .cornerRadius(10)
-//                }
-//                .padding()
+                //                Button(action: {
+                //                    NavigationView()
+                //                }) {
+                //                    Text("Öffne Apple Maps")
+                //                        .foregroundColor(.white)
+                //                        .padding()
+                //                        .background(Color.blue)
+                //                        .cornerRadius(10)
+                //                }
+                //                .padding()
             }
             .overlay(
                 Button(action: {

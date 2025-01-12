@@ -37,6 +37,7 @@ struct StundenplanView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
                 List(viewModel.timetables.filter({ $0.userId == selectedUser?.id && $0.day == selectedDay })) { timetable in
                     VStack(alignment: .leading) {
                         Text("\(timetable.startTime.formatted(date: .omitted, time: .shortened)) - \(timetable.endTime.formatted(date: .omitted, time: .shortened))")
@@ -53,8 +54,8 @@ struct StundenplanView: View {
                 }
             }
             .sheet(isPresented: $showAddTimetableView) {
-                            AddTimetableView(viewModel: viewModel, selectedUser: $selectedUser)
-                        }
+                AddTimetableView(viewModel: viewModel, selectedUser: $selectedUser)
+            }
             .onAppear {
                 viewModel.fetchTimetables()
                 viewModel.fetchUsers()

@@ -10,16 +10,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import Combine
 
-
 class MealRepository{
     
     private let db = Firestore.firestore()
     static let shared = MealRepository()
-
-    
-    
-    
-    // Für das Was gibt es zu Essen
     
     func addFavoriteMeal(_ meal: Meal) {
         let data: [String: Any] = [
@@ -37,7 +31,7 @@ class MealRepository{
             }
         }
     }
-
+    
     func removeFavoriteMeal(_ meal: Meal) {
         db.collection("favoriteMeals").document(meal.id).delete { error in
             if let error = error {
@@ -47,7 +41,7 @@ class MealRepository{
             }
         }
     }
-
+    
     func getFavoriteMeals(completion: @escaping ([Meal]) -> Void) {
         db.collection("favoriteMeals").getDocuments { querySnapshot, error in
             if let error = error {
@@ -59,11 +53,11 @@ class MealRepository{
                     let name = data["name"] as? String ?? ""
                     let imageURL = data["imageURL"] as? String ?? ""
                     let instructions = data["instructions"] as? String ?? ""
-//                    let category = data["category"] as? String ?? ""
-//                    let area = data["area"] as? String ?? ""
-//                    let ingredients = data["ingredients"] as? String ?? ""
-//                    let measures = data["measures"] as? String ?? ""
-//                    
+                    //                    let category = data["category"] as? String ?? ""
+                    //                    let area = data["area"] as? String ?? ""
+                    //                    let ingredients = data["ingredients"] as? String ?? ""
+                    //                    let measures = data["measures"] as? String ?? ""
+                    //                    
                     return Meal(id: document.documentID, name: name, imageURL: imageURL, instructions: instructions)
                 } ?? []
                 
@@ -71,6 +65,4 @@ class MealRepository{
             }
         }
     }
-    
-    
 }

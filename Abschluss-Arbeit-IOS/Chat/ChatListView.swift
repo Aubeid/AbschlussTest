@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ChatListView: View {
     @StateObject private var viewModel = ChatListViewModel()
     

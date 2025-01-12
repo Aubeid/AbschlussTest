@@ -21,7 +21,7 @@ class MealViewModel: ObservableObject {
         fetchRandomMeal()
         loadFavoriteMeals()
     }
-
+    
     func fetchRandomMeal() {
         apiService.fetchMeals()
             .sink(receiveCompletion: { completion in
@@ -42,30 +42,30 @@ class MealViewModel: ObservableObject {
     }
     
     func toggleFavorite(_ meal: Meal) {
-            if isFavoriteMeal(meal) {
-                removeFavoriteMeal(meal)
-            } else {
-                addFavoriteMeal(meal)
-            }
-        }
-        
-        func isFavoriteMeal(_ meal: Meal) -> Bool {
-            return favoriteMeals.contains { $0.id == meal.id }
-        }
-        
-        func addFavoriteMeal(_ meal: Meal) {
-            repository.addFavoriteMeal(meal)
-            favoriteMeals.append(meal)
-        }
-        
-        func removeFavoriteMeal(_ meal: Meal) {
-            repository.removeFavoriteMeal(meal)
-            favoriteMeals.removeAll { $0.id == meal.id }
-        }
-        
-        func loadFavoriteMeals() {
-            repository.getFavoriteMeals { [weak self] favoriteMeals in
-                self?.favoriteMeals = favoriteMeals
-            }
+        if isFavoriteMeal(meal) {
+            removeFavoriteMeal(meal)
+        } else {
+            addFavoriteMeal(meal)
         }
     }
+    
+    func isFavoriteMeal(_ meal: Meal) -> Bool {
+        return favoriteMeals.contains { $0.id == meal.id }
+    }
+    
+    func addFavoriteMeal(_ meal: Meal) {
+        repository.addFavoriteMeal(meal)
+        favoriteMeals.append(meal)
+    }
+    
+    func removeFavoriteMeal(_ meal: Meal) {
+        repository.removeFavoriteMeal(meal)
+        favoriteMeals.removeAll { $0.id == meal.id }
+    }
+    
+    func loadFavoriteMeals() {
+        repository.getFavoriteMeals { [weak self] favoriteMeals in
+            self?.favoriteMeals = favoriteMeals
+        }
+    }
+}

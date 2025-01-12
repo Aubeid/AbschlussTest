@@ -32,24 +32,24 @@ final class Message: Identifiable, Codable, ObservableObject {
         
         fetchUserInfo()
     }
-//    required init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let idString = try container.decode(String.self, forKey: .id)
-//        id = UUID(uuidString: idString) ?? UUID() 
-//        text = try container.decode(String.self, forKey: .text)
-//        senderId = try container.decode(String.self, forKey: .senderId)
-//        timestamp = try container.decode(Timestamp.self, forKey: .timestamp)
-//        
-//        fetchUserInfo()
-//    }
-//    
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encodeIfPresent(id, forKey: .id)
-//        try container.encode(text, forKey: .text)
-//        try container.encode(senderId, forKey: .senderId)
-//        try container.encode(timestamp, forKey: .timestamp)
-//    }
+    //    required init(from decoder: Decoder) throws {
+    //        let container = try decoder.container(keyedBy: CodingKeys.self)
+    //        let idString = try container.decode(String.self, forKey: .id)
+    //        id = UUID(uuidString: idString) ?? UUID() 
+    //        text = try container.decode(String.self, forKey: .text)
+    //        senderId = try container.decode(String.self, forKey: .senderId)
+    //        timestamp = try container.decode(Timestamp.self, forKey: .timestamp)
+    //        
+    //        fetchUserInfo()
+    //    }
+    //    
+    //    func encode(to encoder: Encoder) throws {
+    //        var container = encoder.container(keyedBy: CodingKeys.self)
+    //        try container.encodeIfPresent(id, forKey: .id)
+    //        try container.encode(text, forKey: .text)
+    //        try container.encode(senderId, forKey: .senderId)
+    //        try container.encode(timestamp, forKey: .timestamp)
+    //    }
     
     private func fetchUserInfo() {
         let userRef = Firestore.firestore().collection("users").document(senderId)

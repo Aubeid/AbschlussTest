@@ -12,7 +12,6 @@ struct FavoritesView: View {
     @ObservedObject private var viewModel = FavoritesViewModel.sharedFavoViewModel
     @State private var errorMessage: String?
     
-    
     var body: some View {
         NavigationStack {
             Group {
@@ -48,7 +47,7 @@ struct FavoritesView: View {
                 viewModel.loadFavorites()
             }
         }
-       
+        
     }
 }
 

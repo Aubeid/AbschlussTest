@@ -11,9 +11,8 @@ import FirebaseStorage
 
 struct ChatView: View {
     @StateObject private var viewModel: ChatViewModel
-       @State private var messageText = ""
+    @State private var messageText = ""
     
-   
     var body: some View {
         VStack {
             ScrollView {
@@ -49,8 +48,6 @@ struct ChatView: View {
         }
     }
     
-    
-    
     init(recipient: User? = nil) {
         if let recipient = recipient {
             _viewModel = StateObject(wrappedValue: ChatViewModel(recipient: recipient))
@@ -65,7 +62,6 @@ struct ChatView: View {
         messageText = ""
     }
 }
-
 
 #Preview {
     ChatView()

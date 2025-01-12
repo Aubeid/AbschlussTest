@@ -14,13 +14,12 @@ struct Abschluss_Arbeit_IOSApp: App {
     init() {
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
-      }
+    }
     
     var body: some Scene {
         WindowGroup {
             WelcomeView()
             
-        }
-        
+        }        
     }
 }

@@ -24,9 +24,8 @@ final class AuthViewModel: ObservableObject {
     //@Published var showAuthView = false
     
     init() {
-       checkLoggedIn()
+        checkLoggedIn()
     }
-    
     
     func checkLoggedIn() {
         user = AuthRepository.shared.checkUser()
@@ -69,7 +68,7 @@ final class AuthViewModel: ObservableObject {
             try AuthRepository.shared.logout()
             user = nil
             showMainView = false
-         
+            
         } catch {
             handleError(error: error)
         }
@@ -106,10 +105,8 @@ final class AuthViewModel: ObservableObject {
         default:
             errorMessage = "Unbekannter Fehler"
         }
-        
         showAlert = true
     }
-    
 }
 
 

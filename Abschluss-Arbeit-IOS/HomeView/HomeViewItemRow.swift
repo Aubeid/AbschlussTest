@@ -14,8 +14,6 @@ struct HomeViewItemRow: View {
     var body: some View {
         NavigationLink(destination: destinationView()) {
             VStack {
-
-                
                 Text(mainItem.name)
                     .font(.headline)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight: .infinity)
@@ -38,17 +36,12 @@ struct HomeViewItemRow: View {
         } else if mainItem.name == "Gemeinsame Notizen" {
             SharedNotesView()
         } else if mainItem.name == "Familien Chat" {
-           ChatListView()
+            ChatListView()
         } else if mainItem.name == "Was gibt es zu essen?" {
             MealView()
         } else if mainItem.name == "Stundenplan" {
             StundenplanView()
         }else if mainItem.name == "Wo bist du"{
-          // UserListView()
-//            viewModel.openMapsWithUserLocation()
-            
-            
-            
             
         } else {
             EmptyView()
